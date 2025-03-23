@@ -10,7 +10,7 @@ export const SITE: Site = {
 
 export const HOME: Metadata = {
   TITLE: 'Beranda',
-  DESCRIPTION: 'Selamat datang di ruang menulis saya.'
+  DESCRIPTION: 'Sebuah ruang menulis seorang pembelajar yang akan terus sebagai pembelajar.'
 }
 
 export const BLOG: Metadata = {

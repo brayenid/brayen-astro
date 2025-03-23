@@ -18,6 +18,8 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
+console.log(Astro.site)
+
 const { title, description, image = '/bweb.png' } = Astro.props
 ---
 

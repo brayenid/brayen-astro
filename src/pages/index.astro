@@ -7,21 +7,16 @@ import Link from '@components/Link.astro'
 import { SITE, HOME, SOCIALS } from '@consts'
 
 const blog = (await getCollection('blog'))
-  .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .filter((post: { data: { draft: unknown } }) => !post.data.draft)
+  .sort((a: { data: { date: number } }, b: { data: { date: number } }) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE)
-
-const projects = (await getCollection('projects'))
-  .filter((project) => !project.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE)
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
-    <h4 class="animate font-semibold text-black dark:text-white">
+    <h2 class="animate font-semibold text-black dark:text-white">
       Halo, Saya Brayen <span class="text-xl">👋🏻</span>
-    </h4>
+    </h2>
     <div class="space-y-16">
       <section>
         <article class="space-y-4">
@@ -31,21 +26,17 @@ const projects = (await getCollection('projects'))
             memfokuskan diri dalam pembelajaran Javascript - Typescript. Mungkin akan mempelajari yang lainnya, hmm
             mungkin saja.
           </p>
-          <p class="animate">
-            Saya juga bagian dari <a href="https://knk.biz.id" target="_blank" rel="noopener noreferrer">KNK</a>, sebuah
-            perusahaan jasa yang menawarkan berbagai jenis layanan.
-          </p>
         </article>
       </section>
 
       <section class="animate space-y-6">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">🖋️ Blog Terbaru</h5>
+          <h2 class="font-semibold text-black dark:text-white">🖋️ Blog</h2>
           <Link href="/blog"> Lihat semua </Link>
         </div>
         <ul class="flex flex-col gap-4">
           {
-            blog.map((post) => (
+            blog.map((post: unknown) => (
               <li>
                 <ArrowCard entry={post} />
               </li>
@@ -54,24 +45,8 @@ const projects = (await getCollection('projects'))
         </ul>
       </section>
 
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">🪛 Proyek Terbaru</h5>
-          <Link href="/projects"> Lihat semua </Link>
-        </div>
-        <ul class="flex flex-col gap-4">
-          {
-            projects.map((project) => (
-              <li>
-                <ArrowCard entry={project} />
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-
       <section class="animate space-y-4">
-        <h5 class="font-semibold text-black dark:text-white">📨 Mari terhubung!</h5>
+        <h2 class="font-semibold text-black dark:text-white">📨 Mari terhubung!</h2>
         <article>
           <p>Jika ada yang ingin anda bahas atau sekedar menyapa, kamu bisa menghubungi saya melalui:</p>
         </article>
