@@ -71,26 +71,18 @@ html #back-to-top {
 html.scrolled #back-to-top {
   @apply opacity-100 pointer-events-auto;
 }
-
 #contact {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  @apply flex flex-col gap-4;
 }
+
 #contact input,
 #contact textarea {
-  padding: 0.5rem 1rem;
-  font-family: inherit;
-  border: none;
-  background-color: rgba(0, 0, 0, 0.03);
-  resize: none;
-  font-size: 0.9rem;
-  color: var(--textDeeperColor);
+  @apply p-2 px-4 border border-gray-300 bg-[rgba(0,0,0,0.02)] text-[0.9rem] text-[var(--textDeeperColor)] resize-none dark:border dark:border-gray-700 rounded;
 }
 
 #contact input::placeholder,
 #contact textarea::placeholder {
-  color: var(--textColor);
+  @apply text-[var(--textColor)];
 }
 
 input,
