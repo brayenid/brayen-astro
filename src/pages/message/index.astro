@@ -1,0 +1,29 @@
+---
+import Container from '@components/Container.astro'
+import PageLayout from '@layouts/PageLayout.astro'
+---
+
+<PageLayout
+  title="Kirimkan Pesan"
+  description="Kirimkan pesan atau sekedar menanyakan bagaimana membuat div menjadi center">
+  <Container>
+    <div class="mb-4">
+      <h1 class="animate font-semibold text-black dark:text-white">Kirimkan Pesan</h1>
+      <p class="animate text-black dark:text-gray-200 my-2">
+        Kirimkan pesan atau sekedar menanyakan bagaimana membuat div menjadi center
+      </p>
+    </div>
+    <form id="contact" target="_blank" action="https://formsubmit.co/319bddddd3b99cba0d6b68a77af1ed21" method="POST">
+      <input type="text" placeholder="Nama" name="name" required />
+      <input type="email" placeholder="Email" name="name" required />
+      <textarea name="message" rows="10" placeholder="Pesan anda ..." required></textarea>
+      <div class="flex justify-end">
+        <button
+          type="submit"
+          class="relative group w-fit flex p-2 flex-nowrap rounded border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out"
+          >Kirim!</button
+        >
+      </div>
+    </form>
+  </Container>
+</PageLayout>
